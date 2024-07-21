@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+        }
+
+        .btn1 {
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">This is sample heading</h1>
+    <div class="box"></div>
+    <ul></ul>
+
+    <div class="btns">
+        <button class="btn1" id="change">1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+
+    <img src="https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg" alt="bird" class="img">
+
+    <script>
+        //Task 1
+        const heading = document.getElementById("heading");
+        heading.textContent = "This is modified heading"
+
+        //Task 2
+        const box = document.querySelector(".box");
+        box.style.backgroundColor = "red";
+
+        //Task 3
+        const newDiv = document.createElement("div");
+        newDiv.appendChild(document.createTextNode("New Div"))
+        document.body.appendChild(newDiv)
+
+        //Task 5
+        const ul = document.querySelector("ul");
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode("This is list item"));
+        ul.appendChild(li)
+
+        //Task 5
+        box.remove();
+
+        //Task 6
+        const btns = document.querySelector(".btns");
+        btns.removeChild(btns.lastElementChild)
+
+        //Task 7
+        const img = document.querySelector(".img");
+        img.src = "https://media.architecturaldigest.com/photos/63079b5c3a5ed058d0044850/master/w_960%2Cc_limit/1.%2520Acura-Precision-EV%2520%255BAcura%255D.jpg"
+
+        //Task 8
+        const btn1 = document.querySelector(".btn1");
+        btn1.classList.remove('btn1')
+
+        //Task 9
+        const change = document.querySelector("#change")
+        change.addEventListener("click", () => {
+            newDiv.textContent = ""
+        })
+
+        //Task 10
+        change.addEventListener("mouseover", () => {
+            change.style.border = "2px solid red"
+        })
+    </script>
+</body>
+
+</html>
