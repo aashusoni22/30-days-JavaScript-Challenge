@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image {
+            visibility: visible;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, accusamus quaerat consectetur,
+        amet, tempora
+        molestiae qui sunt soluta corporis ea laborum! Ratione possimus minima expedita recusandae reprehenderit rerum
+        totam velit natus. Ullam, nisi odio!
+    </p>
+    <button class="change">Change text</button>
+    <button class="">toggle</button>
+    <div class="box"></div>
+    <img src="https://blogassets.leverageedu.com/blog/wp-content/uploads/2019/12/23174648/B-Tech-Degree-800x500.png"
+        alt="tech" class="image">
+    <p>keydown</p>
+    <input type="text" id="inputText">
+    <p>keyup</p>
+    <input type="text" id="inputText2">
+    <p>form submit preventDefault</p>
+    <form>
+        <input type="text" id="name" placeholder="name">
+        <input type="email" id="email" placeholder="email">
+        <input type="submit" value="submit" id="submit">
+    </form>
+    <p>dropdown</p>
+    <div>
+        <p class="showText"></p>
+        <select name="cities" id="cities">
+            <option value="bharuch" class="city">Bharuch</option>
+            <option value="vadodara" class="city">Vadodara</option>
+            <option value="rajkot" class="city">Rajkot</option>
+        </select>
+    </div>
+
+    <ul class="parent">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+        <li>Task 4</li>
+    </ul>
+    <button class="addBtn">add</button>
+
+    <script>
+        const para = document.querySelector(".para");
+        const change = document.querySelector(".change");
+
+        //Task 1
+        change.addEventListener("click", () => {
+            para.textContent = "The paragraph has been changed."
+        })
+
+        //Task 2
+        const image = document.querySelector(".image");
+        image.addEventListener("dblclick", () => {
+            if (image.style.visibility === "visible") {
+                image.style.visibility("hidden");
+            } else {
+                image.style.visibility = "hidden"
+            }
+        })
+
+        //Task 3
+        const box = document.querySelector(".box");
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "yellow";
+        })
+
+        //Task 4
+        box.addEventListener("mouseout", () => {
+            box.style.backgroundColor = "";
+        })
+
+        //Task 5
+        const inputText = document.querySelector("#inputText");
+        inputText.addEventListener("keydown", (e) => {
+            console.log(e.key)
+        })
+
+        //Task 6
+        const inputText2 = document.querySelector("#inputText2");
+        inputText2.addEventListener("keyup", () => {
+            console.log(inputText2.value)
+        })
+
+        //Task 7
+        const submit = document.querySelector("#submit");
+        const name = document.querySelector("#name");
+        const email = document.querySelector("#email");
+        submit.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(name.value)
+            console.log(email.value)
+        })
+
+        //Task 8
+        const showText = document.querySelector(".showText");
+        const cities = document.querySelector("#cities");
+
+        cities.addEventListener("change", () => {
+            showText.textContent = cities.value
+        })
+
+        //Task 9
+        const list = document.getElementsByTagName("li");
+        for (li of list) {
+            li.addEventListener("click", (e) => {
+                console.log(e.target.innerText)
+            })
+        }
+
+        //Task 10
+        const addBtn = document.querySelector(".addBtn")
+        const parent = document.querySelector(".parent")
+
+        addBtn.addEventListener("click", () => {
+            const newLi = document.createElement("li");
+            newLi.className = "newLi";
+            newLi.appendChild(document.createTextNode("Task 5"));
+            parent.appendChild(newLi);
+        })
+
+        parent.addEventListener("click", (e) => {
+            if (e.target && e.target.nodeName === "LI") {
+                console.log(`Clicked item: ${event.target.textContent}`);
+            }
+        })
+
+    </script>
+</body>
+
+</html>
