@@ -19,6 +19,7 @@ export function divide(n1, n2) {
   }
 }
 
+//Task 4
 function findMax(n1, n2) {
   console.log(Math.max(n1, n2));
 }
