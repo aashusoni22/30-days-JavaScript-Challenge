@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage and SessionStorage</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" placeholder="add string" id="string">
+        <button type="submit" id="add">Add to storage</button>
+        <button id="get">Get from storage</button>
+    </form>
+</body>
+<script>
+    const string = document.getElementById("string");
+    const add = document.getElementById("add");
+    const get = document.getElementById("get");
+
+    //Task 1
+    add.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (string.value.trim().length !== 0) {
+            localStorage.setItem("user-string", string.value);
+            string.value = ""
+        } else {
+            alert("Please add a string")
+        }
+    })
+
+    get.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (localStorage.length > 0) {
+            string.value = localStorage.getItem("user-string")
+        } else {
+            alert("localStorage is empty.");
+        }
+
+    })
+
+</script>
+
+</html>

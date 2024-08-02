@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <button type="submit" id="submit">Submit</button>
+        <button type="submit" id="check">Check Storage</button>
+        <button type="submit" id="remove">Remove</button>
+    </form>
+</body>
+<script>
+    const username = document.getElementById("username")
+    const email = document.getElementById("email")
+    const submit = document.getElementById("submit")
+    const check = document.getElementById("check")
+    const remove = document.getElementById("remove")
+
+    //Task 8
+    submit.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (username.value.trim() !== "" && email.value.trim() !== "") {
+            const user = {
+                username: username.value,
+                email: email.value
+            }
+            sessionStorage.setItem("user", JSON.stringify(user));
+            username.value = "";
+            email.value = "";
+        } else {
+            alert("Please fill the form")
+        }
+    })
+
+    check.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (sessionStorage.length > 0) {
+            // Loop through all items in localStorage
+            for (let i = 0; i < sessionStorage.length; i++) {
+                // Get the key and value
+                const key = sessionStorage.key(i);
+                const value = sessionStorage.getItem(key);
+                console.log(`${key}: ${value}`);
+            }
+        } else {
+            alert("No items found in localStorage.");
+        }
+    })
+
+
+    remove.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (sessionStorage.length > 0) {
+            sessionStorage.removeItem("user");
+        }
+    })
+</script>
+
+</html>

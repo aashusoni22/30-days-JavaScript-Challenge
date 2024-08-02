@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName">
+        <label for="age">Age</label>
+        <input type="text" name="age" id="age">
+        <button type="submit" id="save">Save to storage</button>
+        <button id="retrive">Get from storage</button>
+    </form>
+</body>
+<script>
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const age = document.getElementById("age");
+    const save = document.getElementById("save");
+    const retrive = document.getElementById("retrive");
+
+    //Task 6
+    save.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (firstName.value.trim() !== "" && lastName.value.trim() !== "" && age.value.trim() !== "") {
+            const userData = {
+                firstname: firstName.value,
+                lastname: lastName.value,
+                age: age.value
+            };
+            sessionStorage.setItem("userdata", JSON.stringify(userData))
+            firstName.value = "";
+            lastName.value = "";
+            age.value = "";
+        } else {
+            alert("Please fill up the form")
+        }
+    })
+
+    retrive.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dataFromStorage = sessionStorage.getItem("userdata");
+        if (dataFromStorage) {
+            const parsed = JSON.parse(dataFromStorage)
+            firstName.value = parsed.firstname;
+            lastName.value = parsed.lastname;
+            age.value = parsed.age;
+        } else {
+            alert("No data found in localStorage.");
+        }
+    })
+</script>
+
+</html>

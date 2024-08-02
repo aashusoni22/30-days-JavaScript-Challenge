@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="key">Key</label>
+        <input type="text" name="key" id="key">
+        <label for="value">Value</label>
+        <input type="text" name="value" id="value">
+        <button type="submit" id="save">Save</button>
+        <label for="datashow">Enter key</label>
+        <input type="text" name="datashow" id="datashow">
+        <button type="submit" id="show">Show</button>
+        <button type="submit" id="deleteData">Delete</button>
+    </form>
+</body>
+<script>
+    const key = document.getElementById("key")
+    const value = document.getElementById("value")
+    const save = document.getElementById("save")
+    const show = document.getElementById("show")
+    const datashow = document.getElementById("datashow")
+    const deleteData = document.getElementById("deleteData")
+
+    //Task 9
+    function storage(key, value) {
+        if (key !== "" && value !== "") {
+            localStorage.setItem(key, value);
+            sessionStorage.setItem(key, value);
+        }
+        else {
+            alert("Please add data")
+        }
+        key.value = ""
+        value.value = ""
+    }
+
+    save.addEventListener("click", (e) => {
+        e.preventDefault();
+        storage(key.value, value.value)
+    })
+    show.addEventListener("click", (e) => {
+        e.preventDefault();
+        const hasData = localStorage.getItem(datashow.value) && sessionStorage.getItem(datashow.value);
+        if (hasData && datashow.value.trim() !== "") {
+            console.log(`From Local: ${localStorage.getItem(datashow.value)}`);
+            console.log(`From Session: ${sessionStorage.getItem(datashow.value)}`);
+        } else if (!hasData && datashow.value.trim() !== "") {
+            alert("No such data in storage")
+
+        } else {
+            alert("Please enter key")
+        }
+        datashow.value = ""
+    })
+
+    //Task 10
+    deleteData.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        localStorage.clear()
+        sessionStorage.clear()
+    })
+</script>
+
+</html>

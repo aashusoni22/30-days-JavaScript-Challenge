@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="email" name="email" id="email">
+        <button type="submit" id="save">Save</button>
+        <button type="submit" id="show">Show</button>
+    </form>
+    <p id="retrived"></p>
+</body>
+<script>
+    const email = document.getElementById("email")
+    const save = document.getElementById("save")
+    const show = document.getElementById("show")
+    const retrived = document.getElementById("retrived")
+
+    //Task 5
+    save.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (email.value.trim() !== "") {
+            sessionStorage.setItem("email", email.value)
+        } else {
+            alert("Please add email")
+        }
+        email.value = "";
+    })
+
+    show.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (sessionStorage.length > 0) {
+            retrived.innerText = sessionStorage.getItem("email")
+        } else {
+            alert("No data")
+        }
+    })
+
+</script>
+
+</html>
