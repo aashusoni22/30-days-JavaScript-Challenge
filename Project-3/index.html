@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>CheckMate - Your Todo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside>
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-circle-check logo" style="color: #00b4d8;"></i>
+            <h3 class="title">CheckMate</h3>
+        </div>
+        <ul class="sidebar-options">
+            <li class="add-task-btn"><i class="fa-solid fa-plus"></i> Add Task</li>
+            <li id="all-tasks"><i class="fa-solid fa-list"></i> All Tasks</li>
+            <li id="today"><i class="fa-regular fa-calendar" title="Today" style="color: #03cb2c;"></i> Today</li>
+            <li id="upcoming"><i class="fa-regular fa-clock" title="Upcoming" style="color: #f5c000;"></i> Upcoming
+            </li>
+        </ul>
+    </aside>
+    <form>
+        <p id="formTitle">Add New Task</p>
+        <input type="text" name="task-title" id="task-title" placeholder="Title">
+        <textarea name="task-description" id="task-description" placeholder="Description"></textarea>
+        <input type="date" name="task-due-date" id="task-due-date">
+        <p id="error"></p>
+        <button type="submit" id="task-addBtn">Add Task</button>
+    </form>
+    <div class="content">
+        <main>
+        </main>
+        <div id="task-Modal" class="modal">
+            <div class="modal-content">
+                <div class="modalDetail">
+                    <p id="modalTitle">Are you sure you want to delete the note?</p>
+                    <div>
+                        <button id="modal-delete">Yes</button>
+                        <button id="modal-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/fe8b7c562d.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</html>

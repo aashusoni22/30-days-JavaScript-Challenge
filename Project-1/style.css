@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  height: 100vh;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 100px;
+}
+
+.searchBar {
+  display: flex;
+  gap: 5px;
+}
+
+#locationSearch {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 22vw;
+}
+
+.searchBtn {
+  padding: 10px;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff1eb;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBtn > img {
+  width: 22px;
+}
+
+.weatherDetails {
+  margin-top: 30px;
+  width: 18.3vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.condition {
+  margin-top: 10px;
+  width: 100px;
+}
+
+.temp {
+  font-size: 50px;
+  margin-top: 10px;
+}
+
+.conditionText {
+  color: grey;
+}
+
+.forecastBox {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.forecastDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 110px;
+  height: 130px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.forecastDate {
+}
+.forecastIcon {
+}
+.forecastTemp {
+}

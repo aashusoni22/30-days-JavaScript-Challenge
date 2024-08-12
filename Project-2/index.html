@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Movie Mania</title>
+</head>
+
+<body>
+    <aside>
+        <p class="title"><img src="images/logo.png" alt="Logo">Movie Mania</p>
+        <nav>
+            <ul class="navItems">
+                <li id="now-playing"><i class="fa-solid fa-circle-play"></i> Now Playing</li>
+                <li id="popular"><i class="fa-solid fa-fire"></i> Trending</li>
+                <li id="top-rated"><i class="fa-solid fa-star"></i> Top Rated</li>
+                <li id="upcoming"><i class="fa-solid fa-film"></i> Upcoming</li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="content">
+        <header>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="search-movie" id="search-movie" placeholder="Search movies">
+        </header>
+        <p class="content-title"><i class="fa-solid fa-fire"></i> Trending</p>
+        <main>
+
+        </main>
+        <!-- Modal Structure -->
+        <div id="movieModal" class="modal">
+            <div class="modal-content">
+                <!-- <span class="close">&times;</span> -->
+                <img id="modalPoster" src="" alt="Movie Poster" />
+                <div class="modalDetail">
+                    <h2 id="modalTitle">Name of the movie</h2>
+                    <ul id="modalGenres"></ul>
+                    <p id="modalRating"></p>
+                    <p id="modalOverview"></p>
+                    <p id="castHeading">Cast</p>
+                    <ul id="modalCast"></ul>
+                    <p id="directorHeading">Director</p>
+                    <ul id="modalDirector"></ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <button class="backward"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="forward"><i class="fa-solid fa-chevron-right"></i></button>
+        </footer>
+    </div>
+</body>
+
+<script src="script.js"></script>
+<script src="https://kit.fontawesome.com/fe8b7c562d.js" crossorigin="anonymous"></script>
+
+</html>
